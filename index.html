@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form Test 2 - Save</title>
+
+  <script src='asset\js\jquery.min.js'></script>
+  <script src='asset\js\import.js'></script>
+  <link rel="stylesheet" href="asset\css\flexboxgrid.min.css">
+  <link rel="stylesheet" href="asset\css\desktop.css">
+</head>
+
+<script>
+  window.onbeforeunload = function(e) {
+    var dialogText = 'Save Before Exit?';
+    e.returnValue = dialogText;
+    return dialogText;
+  };
+</script>
+
+<body onbeforeprint="prePrint()" onafterprint="postPrint()">
+
+  <div class="tab">
+    <button class="tab_links" onclick="open_tab(event, 'Overall-Tab')">Overall</button>
+    <button class="tab_links" onclick="open_tab(event, 'Organization-Tab')">Organization</button>
+    <button class="tab_links" onclick="open_tab(event, 'Contact_Person-Tab')">Contact Person</button>
+    <button class="tab_links" onclick="open_tab(event, 'Shipping-Tab')">Shipping</button>
+    <button class="tab_links" onclick="open_tab(event, 'Order_Info-Tab')">Order Information</button>
+    <button class="tab_links" onclick="open_tab(event, 'Trophy_Spec-Tab')">Trophy</button>
+    <button class="tab_links" onclick="open_tab(event, 'Plaque_Spec-Tab')">Plaque</button>
+    <button class="tab_links" onclick="open_tab(event, 'Medal_Spec-Tab')">Medal</button>
+
+    <button class="functionPrint" onclick="window.print();">Print<button>
+  </div>
+
+  <div id="formOuter">
+
+
+    <!------------------------------------------------------------------------------------>
+    <!--Organization---------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------>
+
+    <div id="Overall-Tab" class="tab_content">
+      <form class="row">
+        <div class="col-xs-12">
+          <h3>Overall</h3>
+        </div>
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Overall-trophies_cost-label">Trophies Cost</label>
+          <input id="Overall-trophies_cost-input" class="pure-u-23-24 updateCost SubTotal-Sum" type="number" step='0.01' value='0.00' placeholder='0.00' disabled="true" onchange="updateCost()">
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Overall-engraving_Cost-label">Engraving Cost</label>
+          <input id="Overall-engraving_Cost-input" class="pure-u-23-24 updateCost SubTotal-Sum" type="number" step='0.01' value='0.00' placeholder='0.00' onchange="updateCost()">
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <label for="Overall-logo_Cost-label">Logo Cost</label>
+          <input id="Overall-logo_Cost-input" class="pure-u-23-24 updateCost SubTotal-Sum" type="number" step='0.01' value='0.00' placeholder='0.00' onchange="updateCost()">
+        </div>
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Overall-sub_total-label">Sub Total</label>
+          <input id="Overall-sub_total-input" class="pure-u-23-24 updateCost grandtotal-sum" type="number" step='0.01' value='0.00' placeholder='0.00' disabled="true" onchange="updateCost()">
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Overall-tax-label">Tax</label>
+          <input id="Overall-tax-input" class="pure-u-23-24 updateCost grandtotal-sum" type="number" step='0.01' value='0.00' placeholder='0.00' disabled="true" onchange="updateCost()">
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <label for="Overall-shipping-label">Shipping</label>
+          <input id="Overall-shipping-input" class="pure-u-23-24 updateCost grandtotal-sum" type="number" step='0.01' value='0.00' placeholder='0.00' onchange="updateCost()">
+        </div>
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Overall-grand_total-label">Grand Total</label>
+          <input id="Overall-grand_total-input" class="pure-u-23-24 updateCost" type="number" step='0.01' value='0.00' placeholder='0.00' disabled="true">
+        </div>
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-12">
+          <label for="Overall-Notes-Label">Order Cost Total - Notes And Comments</label>
+          <textarea id="Overall-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+        </div>
+
+      </form>
+    </div>
+
+    <!------------------------------------------------------------------------------------>
+    <!--Organization---------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------>
+
+    <div id="OrganizationTab" class="tabcontent">
+      <form class="row">
+        <div class="col-xs-12">
+          <h3>Organization</h3>
+        </div>
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-Name-label">Organization Name</label>
+          <input id="Organization-name-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-Phone-Number-label">Phone Number</label>
+          <input id="Organization-Phone-Number-input" class="pure-u-23-24" type="tel">
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-Fax-Number-label">Fax Number</label>
+          <input id="Organization-Fax-Number-input" class="pure-u-23-24" type="tel">
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-email">Email Address</label>
+          <input id="Organization-email-input" class="pure-u-23-24" type="email">
+        </div>
+
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Organization-Street-Address-1-label">Street Address</label>
+          <input id="Organization-Street-Address-1-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Organization-Street-Address-2-label">Street Address 2</label>
+          <input id="SOrganization-treet-Address-2-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-Country-label">Country</label>
+          <input id="Organization-Country-input" class="pure-u-23-24 County-list" type="text" list="Organization-Country-list" value="US">
+          <datalist id="Organization-Country-list">
+                  <option value="AF">Afghanistan</option>
+                  <option value="AX">Åland Islands</option>
+                  <option value="AL">Albania</option>
+                  <option value="DZ">Algeria</option>
+                  <option value="AS">American Samoa</option>
+                  <option value="AD">Andorra</option>
+                  <option value="AO">Angola</option>
+                  <option value="AI">Anguilla</option>
+                  <option value="AQ">Antarctica</option>
+                  <option value="AG">Antigua and Barbuda</option>
+                  <option value="AR">Argentina</option>
+                  <option value="AM">Armenia</option>
+                  <option value="AW">Aruba</option>
+                  <option value="AU">Australia</option>
+                  <option value="AT">Austria</option>
+                  <option value="AZ">Azerbaijan</option>
+                  <option value="BS">Bahamas</option>
+                  <option value="BH">Bahrain</option>
+                  <option value="BD">Bangladesh</option>
+                  <option value="BB">Barbados</option>
+                  <option value="BY">Belarus</option>
+                  <option value="BE">Belgium</option>
+                  <option value="BZ">Belize</option>
+                  <option value="BJ">Benin</option>
+                  <option value="BM">Bermuda</option>
+                  <option value="BT">Bhutan</option>
+                  <option value="BO">Bolivia, Plurinational State of</option>
+                  <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                  <option value="BA">Bosnia and Herzegovina</option>
+                  <option value="BW">Botswana</option>
+                  <option value="BV">Bouvet Island</option>
+                  <option value="BR">Brazil</option>
+                  <option value="IO">British Indian Ocean Territory</option>
+                  <option value="BN">Brunei Darussalam</option>
+                  <option value="BG">Bulgaria</option>
+                  <option value="BF">Burkina Faso</option>
+                  <option value="BI">Burundi</option>
+                  <option value="KH">Cambodia</option>
+                  <option value="CM">Cameroon</option>
+                  <option value="CA">Canada</option>
+                  <option value="CV">Cape Verde</option>
+                  <option value="KY">Cayman Islands</option>
+                  <option value="CF">Central African Republic</option>
+                  <option value="TD">Chad</option>
+                  <option value="CL">Chile</option>
+                  <option value="CN">China</option>
+                  <option value="CX">Christmas Island</option>
+                  <option value="CC">Cocos (Keeling) Islands</option>
+                  <option value="CO">Colombia</option>
+                  <option value="KM">Comoros</option>
+                  <option value="CG">Congo</option>
+                  <option value="CD">Congo, the Democratic Republic of the</option>
+                  <option value="CK">Cook Islands</option>
+                  <option value="CR">Costa Rica</option>
+                  <option value="CI">Côte d'Ivoire</option>
+                  <option value="HR">Croatia</option>
+                  <option value="CU">Cuba</option>
+                  <option value="CW">Curaçao</option>
+                  <option value="CY">Cyprus</option>
+                  <option value="CZ">Czech Republic</option>
+                  <option value="DK">Denmark</option>
+                  <option value="DJ">Djibouti</option>
+                  <option value="DM">Dominica</option>
+                  <option value="DO">Dominican Republic</option>
+                  <option value="EC">Ecuador</option>
+                  <option value="EG">Egypt</option>
+                  <option value="SV">El Salvador</option>
+                  <option value="GQ">Equatorial Guinea</option>
+                  <option value="ER">Eritrea</option>
+                  <option value="EE">Estonia</option>
+                  <option value="ET">Ethiopia</option>
+                  <option value="FK">Falkland Islands (Malvinas)</option>
+                  <option value="FO">Faroe Islands</option>
+                  <option value="FJ">Fiji</option>
+                  <option value="FI">Finland</option>
+                  <option value="FR">France</option>
+                  <option value="GF">French Guiana</option>
+                  <option value="PF">French Polynesia</option>
+                  <option value="TF">French Southern Territories</option>
+                  <option value="GA">Gabon</option>
+                  <option value="GM">Gambia</option>
+                  <option value="GE">Georgia</option>
+                  <option value="DE">Germany</option>
+                  <option value="GH">Ghana</option>
+                  <option value="GI">Gibraltar</option>
+                  <option value="GR">Greece</option>
+                  <option value="GL">Greenland</option>
+                  <option value="GD">Grenada</option>
+                  <option value="GP">Guadeloupe</option>
+                  <option value="GU">Guam</option>
+                  <option value="GT">Guatemala</option>
+                  <option value="GG">Guernsey</option>
+                  <option value="GN">Guinea</option>
+                  <option value="GW">Guinea-Bissau</option>
+                  <option value="GY">Guyana</option>
+                  <option value="HT">Haiti</option>
+                  <option value="HM">Heard Island and McDonald Islands</option>
+                  <option value="VA">Holy See (Vatican City State)</option>
+                  <option value="HN">Honduras</option>
+                  <option value="HK">Hong Kong</option>
+                  <option value="HU">Hungary</option>
+                  <option value="IS">Iceland</option>
+                  <option value="IN">India</option>
+                  <option value="ID">Indonesia</option>
+                  <option value="IR">Iran, Islamic Republic of</option>
+                  <option value="IQ">Iraq</option>
+                  <option value="IE">Ireland</option>
+                  <option value="IM">Isle of Man</option>
+                  <option value="IL">Israel</option>
+                  <option value="IT">Italy</option>
+                  <option value="JM">Jamaica</option>
+                  <option value="JP">Japan</option>
+                  <option value="JE">Jersey</option>
+                  <option value="JO">Jordan</option>
+                  <option value="KZ">Kazakhstan</option>
+                  <option value="KE">Kenya</option>
+                  <option value="KI">Kiribati</option>
+                  <option value="KP">Korea, Democratic People's Republic of</option>
+                  <option value="KR">Korea, Republic of</option>
+                  <option value="KW">Kuwait</option>
+                  <option value="KG">Kyrgyzstan</option>
+                  <option value="LA">Lao People's Democratic Republic</option>
+                  <option value="LV">Latvia</option>
+                  <option value="LB">Lebanon</option>
+                  <option value="LS">Lesotho</option>
+                  <option value="LR">Liberia</option>
+                  <option value="LY">Libya</option>
+                  <option value="LI">Liechtenstein</option>
+                  <option value="LT">Lithuania</option>
+                  <option value="LU">Luxembourg</option>
+                  <option value="MO">Macao</option>
+                  <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                  <option value="MG">Madagascar</option>
+                  <option value="MW">Malawi</option>
+                  <option value="MY">Malaysia</option>
+                  <option value="MV">Maldives</option>
+                  <option value="ML">Mali</option>
+                  <option value="MT">Malta</option>
+                  <option value="MH">Marshall Islands</option>
+                  <option value="MQ">Martinique</option>
+                  <option value="MR">Mauritania</option>
+                  <option value="MU">Mauritius</option>
+                  <option value="YT">Mayotte</option>
+                  <option value="MX">Mexico</option>
+                  <option value="FM">Micronesia, Federated States of</option>
+                  <option value="MD">Moldova, Republic of</option>
+                  <option value="MC">Monaco</option>
+                  <option value="MN">Mongolia</option>
+                  <option value="ME">Montenegro</option>
+                  <option value="MS">Montserrat</option>
+                  <option value="MA">Morocco</option>
+                  <option value="MZ">Mozambique</option>
+                  <option value="MM">Myanmar</option>
+                  <option value="NA">Namibia</option>
+                  <option value="NR">Nauru</option>
+                  <option value="NP">Nepal</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="NC">New Caledonia</option>
+                  <option value="NZ">New Zealand</option>
+                  <option value="NI">Nicaragua</option>
+                  <option value="NE">Niger</option>
+                  <option value="NG">Nigeria</option>
+                  <option value="NU">Niue</option>
+                  <option value="NF">Norfolk Island</option>
+                  <option value="MP">Northern Mariana Islands</option>
+                  <option value="NO">Norway</option>
+                  <option value="OM">Oman</option>
+                  <option value="PK">Pakistan</option>
+                  <option value="PW">Palau</option>
+                  <option value="PS">Palestinian Territory, Occupied</option>
+                  <option value="PA">Panama</option>
+                  <option value="PG">Papua New Guinea</option>
+                  <option value="PY">Paraguay</option>
+                  <option value="PE">Peru</option>
+                  <option value="PH">Philippines</option>
+                  <option value="PN">Pitcairn</option>
+                  <option value="PL">Poland</option>
+                  <option value="PT">Portugal</option>
+                  <option value="PR">Puerto Rico</option>
+                  <option value="QA">Qatar</option>
+                  <option value="RE">Réunion</option>
+                  <option value="RO">Romania</option>
+                  <option value="RU">Russian Federation</option>
+                  <option value="RW">Rwanda</option>
+                  <option value="BL">Saint Barthélemy</option>
+                  <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                  <option value="KN">Saint Kitts and Nevis</option>
+                  <option value="LC">Saint Lucia</option>
+                  <option value="MF">Saint Martin (French part)</option>
+                  <option value="PM">Saint Pierre and Miquelon</option>
+                  <option value="VC">Saint Vincent and the Grenadines</option>
+                  <option value="WS">Samoa</option>
+                  <option value="SM">San Marino</option>
+                  <option value="ST">Sao Tome and Principe</option>
+                  <option value="SA">Saudi Arabia</option>
+                  <option value="SN">Senegal</option>
+                  <option value="RS">Serbia</option>
+                  <option value="SC">Seychelles</option>
+                  <option value="SL">Sierra Leone</option>
+                  <option value="SG">Singapore</option>
+                  <option value="SX">Sint Maarten (Dutch part)</option>
+                  <option value="SK">Slovakia</option>
+                  <option value="SI">Slovenia</option>
+                  <option value="SB">Solomon Islands</option>
+                  <option value="SO">Somalia</option>
+                  <option value="ZA">South Africa</option>
+                  <option value="GS">South Georgia and the South Sandwich Islands</option>
+                  <option value="SS">South Sudan</option>
+                  <option value="ES">Spain</option>
+                  <option value="LK">Sri Lanka</option>
+                  <option value="SD">Sudan</option>
+                  <option value="SR">Suriname</option>
+                  <option value="SJ">Svalbard and Jan Mayen</option>
+                  <option value="SZ">Swaziland</option>
+                  <option value="SE">Sweden</option>
+                  <option value="CH">Switzerland</option>
+                  <option value="SY">Syrian Arab Republic</option>
+                  <option value="TW">Taiwan, Province of China</option>
+                  <option value="TJ">Tajikistan</option>
+                  <option value="TZ">Tanzania, United Republic of</option>
+                  <option value="TH">Thailand</option>
+                  <option value="TL">Timor-Leste</option>
+                  <option value="TG">Togo</option>
+                  <option value="TK">Tokelau</option>
+                  <option value="TO">Tonga</option>
+                  <option value="TT">Trinidad and Tobago</option>
+                  <option value="TN">Tunisia</option>
+                  <option value="TR">Turkey</option>
+                  <option value="TM">Turkmenistan</option>
+                  <option value="TC">Turks and Caicos Islands</option>
+                  <option value="TV">Tuvalu</option>
+                  <option value="UG">Uganda</option>
+                  <option value="UA">Ukraine</option>
+                  <option value="AE">United Arab Emirates</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="US" selected="selected">United States</option>
+                  <option value="UM">United States Minor Outlying Islands</option>
+                  <option value="UY">Uruguay</option>
+                  <option value="UZ">Uzbekistan</option>
+                  <option value="VU">Vanuatu</option>
+                  <option value="VE">Venezuela, Bolivarian Republic of</option>
+                  <option value="VN">Viet Nam</option>
+                  <option value="VG">Virgin Islands, British</option>
+                  <option value="VI">Virgin Islands, U.S.</option>
+                  <option value="WF">Wallis and Futuna</option>
+                  <option value="EH">Western Sahara</option>
+                  <option value="YE">Yemen</option>
+                  <option value="ZM">Zambia</option>
+                  <option value="ZW">Zimbabwe</option>
+            </datalist>
+
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-State-label">State / Territory</label>
+          <input id="Organization-State-input" class="pure-u-23-24 State-list" type="text" list="Organization-US-State-list" value="NJ">
+          <datalist id="Organization-US-State-list">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ" selected="selected">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+                <option value="AS">American Samoa</option>
+                <option value="GU">Guam</option>
+                <option value="MP">Northern Mariana Islands</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="UM">United States Minor Outlying Islands</option>
+                <option value="VI">Virgin Islands</option>
+              </datalist>
+          <datalist id="Organization-CA-State-list">
+                <option value="AB">Alberta</option>
+            		<option value="BC">British Columbia</option>
+            		<option value="MB">Manitoba</option>
+            		<option value="NB">New Brunswick</option>
+            		<option value="NF">Newfoundland</option>
+            		<option value="NT">Northwest Territories</option>
+            		<option value="NS">Nova Scotia</option>
+            		<option value="NU">Nunavut</option>
+            		<option value="ON">Ontario</option>
+            		<option value="PE">Prince Edward Island</option>
+            		<option value="QC">Quebec</option>
+            		<option value="SK">Saskatchewan</option>
+            		<option value="YT">Yukon Territory</option>
+              </datalist>
+          <datalist id="Organization-MX-State-list">
+                <option value="DIF">Distrito Federal</option>
+              	<option value="AGS">Aguascalientes</option>
+              	<option value="BCN">Baja California</option>
+              	<option value="BCS">Baja California Sur</option>
+              	<option value="CAM">Campeche</option>
+              	<option value="CHP">Chiapas</option>
+              	<option value="CHI">Chihuahua</option>
+              	<option value="COA">Coahuila</option>
+              	<option value="COL">Colima</option>
+              	<option value="DUR">Durango</option>
+              	<option value="GTO">Guanajuato</option>
+              	<option value="GRO">Guerrero</option>
+              	<option value="HGO">Hidalgo</option>
+              	<option value="JAL">Jalisco</option>
+              	<option value="MEX">M&eacute;xico</option>
+              	<option value="MIC">Michoac&aacute;n</option>
+              	<option value="MOR">Morelos</option>
+              	<option value="NAY">Nayarit</option>
+              	<option value="NLE">Nuevo Le&oacute;n</option>
+              	<option value="OAX">Oaxaca</option>
+              	<option value="PUE">Puebla</option>
+              	<option value="QRO">Quer&eacute;taro</option>
+              	<option value="ROO">Quintana Roo</option>
+              	<option value="SLP">San Luis Potos&iacute;</option>
+              	<option value="SIN">Sinaloa</option>
+              	<option value="SON">Sonora</option>
+              	<option value="TAB">Tabasco</option>
+              	<option value="TAM">Tamaulipas</option>
+              	<option value="TLX">Tlaxcala</option>
+              	<option value="VER">Veracruz</option>
+              	<option value="YUC">Yucat&aacute;n</option>
+              	<option value="ZAC">Zacatecas</option>
+              </datalist>
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-City-label">City</label>
+          <input id="Organization-City-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <label for="Organization-Zip-Code-label">Zip Code</label>
+          <input id="Organization-Zip-Code-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!------------------------------------------------------------------------------------>
+
+        <div class="col-xs-12 col-md-12">
+          <label for="Organization-Notes-Label">Organization - Notes And Comments</label>
+          <textarea id="Organization-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+        </div>
+
+      </form>
+    </div>
+
+    <!------------------------------------------------------------------------------------>
+    <!--Person---------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------>
+
+    <div id="ContactPersonTab" class="tabcontent">
+      <div id="ContactPersonOuter">
+        <form class="row" id="ContactPerson" Qaunity="1">
+
+          <div class="col-xs-11">
+            <h3>Contact Person <span class="ContactPersonCnt-Display-Title">1</span></h3>
+          </div>
+          <div class="col-xs-1">
+            <a onclick="deleteContactPerson(1)" class="closeButton ContactcloseButton" Qaunity="1">&#10006;</a>
+          </div>
+
+          <!------------------------------------------------------------------------------------>
+
+          <div class="col-xs-12 col-md-3">
+            <label for="Contact-Person-first-name-label">First Name</label>
+            <input id="Contact-Person-first-name-input" class="pure-u-23-24" type="text">
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <label for="Contact-Person-Last-name-label">Last Name</label>
+            <input id="Contact-Person-Last-name-input" class="pure-u-23-24" type="text">
+          </div>
+
+          <div class="col-xs-12 col-md-6">
+            <label for="Contact-Person-email-label">E-Mail</label>
+            <input id="Contact-Person-email-input" class="pure-u-23-24" type="email">
+          </div>
+
+          <!------------------------------------------------------------------------------------>
+
+          <div class="col-xs-12 col-md-3">
+            <label for="Contact-Person-Phone-Number-label">Phone Number</label>
+            <input id="Contact-Person-Phone-Number-input" class="pure-u-23-24" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <label for="Contact-Person-Cell-Number-label">Cell Number</label>
+            <input id="Contact-Person-Cell-Number-input" class="pure-u-23-24" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <label for="Contact-Person-Additional-Number-label">Additional Number</label>
+            <input id="Contact-Person-Additional-Number-input" class="pure-u-23-24" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+          </div>
+
+          <div class="col-xs-12 col-md-3">
+            <label for="Contact-Person-Fax-Number-label">Fax Number</label>
+            <input id="Contact-Person-Fax-Number-input" class="pure-u-23-24" type="tel">
+          </div>
+
+
+          <!------------------------------------------------------------------------------------>
+
+          <div class="col-xs-12 col-md-12">
+            <label for="Contact-Person-Notes-Label">Contact Person <span class="ContactPersonCnt-Display-Notes">1</span> Notes And Comments</label>
+            <textarea id="Contact-Person-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+          </div>
+
+        </form>
+
+      </div>
+
+      <div id="CloneInnerContactPerson">
+        <button onclick="CloneInnerContactPerson()">Add Another Contact Person</button>
+  </div>
+
+  </div>
+
+  <!------------------------------------------------------------------------------------>
+  <!--Shipping-Information-------------------------------------------------------------->
+  <!------------------------------------------------------------------------------------>
+
+  <div id="ShippingTab" class="tabcontent">
+    <form class="row" div="Shipping">
+
+      <div class="col-xs-12">
+        <h3>Shipping Information</h3>
+      </div>
+
+      <!------------------------------------------------------------------------------------>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Shipping-Name-label">Shipping Name</label>
+        <input id="Shipping-name-input" class="pure-u-23-24" type="text">
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Shipping-Phone-Number-label">Shipping Phone Number</label>
+        <input id="Shipping-Phone-Number-input" class="pure-u-23-24" type="tel">
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Shipping-Street-Address-1-label">Street Address</label>
+        <input id="Shipping-Street-Address-1-input" class="pure-u-23-24" type="text">
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Shipping-Street-Address-2-label">Street Address 2</label>
+        <input id="Shipping-Street-Address-2-input" class="pure-u-23-24" type="text">
+      </div>
+
+      <!------------------------------------------------------------------------------------>
+
+      <div class="col-xs-12 col-md-3">
+        <label for="Shipping-Country-label">Country</label>
+        <input id="Shipping-Country-input" class="pure-u-23-24 County-list" type="text" list="Shipping-Country-list" value="US">
+        <datalist id="Shipping-Country-list">
+              <option value="AF">Afghanistan</option>
+              <option value="AX">Åland Islands</option>
+              <option value="AL">Albania</option>
+              <option value="DZ">Algeria</option>
+              <option value="AS">American Samoa</option>
+              <option value="AD">Andorra</option>
+              <option value="AO">Angola</option>
+              <option value="AI">Anguilla</option>
+              <option value="AQ">Antarctica</option>
+              <option value="AG">Antigua and Barbuda</option>
+              <option value="AR">Argentina</option>
+              <option value="AM">Armenia</option>
+              <option value="AW">Aruba</option>
+              <option value="AU">Australia</option>
+              <option value="AT">Austria</option>
+              <option value="AZ">Azerbaijan</option>
+              <option value="BS">Bahamas</option>
+              <option value="BH">Bahrain</option>
+              <option value="BD">Bangladesh</option>
+              <option value="BB">Barbados</option>
+              <option value="BY">Belarus</option>
+              <option value="BE">Belgium</option>
+              <option value="BZ">Belize</option>
+              <option value="BJ">Benin</option>
+              <option value="BM">Bermuda</option>
+              <option value="BT">Bhutan</option>
+              <option value="BO">Bolivia, Plurinational State of</option>
+              <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+              <option value="BA">Bosnia and Herzegovina</option>
+              <option value="BW">Botswana</option>
+              <option value="BV">Bouvet Island</option>
+              <option value="BR">Brazil</option>
+              <option value="IO">British Indian Ocean Territory</option>
+              <option value="BN">Brunei Darussalam</option>
+              <option value="BG">Bulgaria</option>
+              <option value="BF">Burkina Faso</option>
+              <option value="BI">Burundi</option>
+              <option value="KH">Cambodia</option>
+              <option value="CM">Cameroon</option>
+              <option value="CA">Canada</option>
+              <option value="CV">Cape Verde</option>
+              <option value="KY">Cayman Islands</option>
+              <option value="CF">Central African Republic</option>
+              <option value="TD">Chad</option>
+              <option value="CL">Chile</option>
+              <option value="CN">China</option>
+              <option value="CX">Christmas Island</option>
+              <option value="CC">Cocos (Keeling) Islands</option>
+              <option value="CO">Colombia</option>
+              <option value="KM">Comoros</option>
+              <option value="CG">Congo</option>
+              <option value="CD">Congo, the Democratic Republic of the</option>
+              <option value="CK">Cook Islands</option>
+              <option value="CR">Costa Rica</option>
+              <option value="CI">Côte d'Ivoire</option>
+              <option value="HR">Croatia</option>
+              <option value="CU">Cuba</option>
+              <option value="CW">Curaçao</option>
+              <option value="CY">Cyprus</option>
+              <option value="CZ">Czech Republic</option>
+              <option value="DK">Denmark</option>
+              <option value="DJ">Djibouti</option>
+              <option value="DM">Dominica</option>
+              <option value="DO">Dominican Republic</option>
+              <option value="EC">Ecuador</option>
+              <option value="EG">Egypt</option>
+              <option value="SV">El Salvador</option>
+              <option value="GQ">Equatorial Guinea</option>
+              <option value="ER">Eritrea</option>
+              <option value="EE">Estonia</option>
+              <option value="ET">Ethiopia</option>
+              <option value="FK">Falkland Islands (Malvinas)</option>
+              <option value="FO">Faroe Islands</option>
+              <option value="FJ">Fiji</option>
+              <option value="FI">Finland</option>
+              <option value="FR">France</option>
+              <option value="GF">French Guiana</option>
+              <option value="PF">French Polynesia</option>
+              <option value="TF">French Southern Territories</option>
+              <option value="GA">Gabon</option>
+              <option value="GM">Gambia</option>
+              <option value="GE">Georgia</option>
+              <option value="DE">Germany</option>
+              <option value="GH">Ghana</option>
+              <option value="GI">Gibraltar</option>
+              <option value="GR">Greece</option>
+              <option value="GL">Greenland</option>
+              <option value="GD">Grenada</option>
+              <option value="GP">Guadeloupe</option>
+              <option value="GU">Guam</option>
+              <option value="GT">Guatemala</option>
+              <option value="GG">Guernsey</option>
+              <option value="GN">Guinea</option>
+              <option value="GW">Guinea-Bissau</option>
+              <option value="GY">Guyana</option>
+              <option value="HT">Haiti</option>
+              <option value="HM">Heard Island and McDonald Islands</option>
+              <option value="VA">Holy See (Vatican City State)</option>
+              <option value="HN">Honduras</option>
+              <option value="HK">Hong Kong</option>
+              <option value="HU">Hungary</option>
+              <option value="IS">Iceland</option>
+              <option value="IN">India</option>
+              <option value="ID">Indonesia</option>
+              <option value="IR">Iran, Islamic Republic of</option>
+              <option value="IQ">Iraq</option>
+              <option value="IE">Ireland</option>
+              <option value="IM">Isle of Man</option>
+              <option value="IL">Israel</option>
+              <option value="IT">Italy</option>
+              <option value="JM">Jamaica</option>
+              <option value="JP">Japan</option>
+              <option value="JE">Jersey</option>
+              <option value="JO">Jordan</option>
+              <option value="KZ">Kazakhstan</option>
+              <option value="KE">Kenya</option>
+              <option value="KI">Kiribati</option>
+              <option value="KP">Korea, Democratic People's Republic of</option>
+              <option value="KR">Korea, Republic of</option>
+              <option value="KW">Kuwait</option>
+              <option value="KG">Kyrgyzstan</option>
+              <option value="LA">Lao People's Democratic Republic</option>
+              <option value="LV">Latvia</option>
+              <option value="LB">Lebanon</option>
+              <option value="LS">Lesotho</option>
+              <option value="LR">Liberia</option>
+              <option value="LY">Libya</option>
+              <option value="LI">Liechtenstein</option>
+              <option value="LT">Lithuania</option>
+              <option value="LU">Luxembourg</option>
+              <option value="MO">Macao</option>
+              <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+              <option value="MG">Madagascar</option>
+              <option value="MW">Malawi</option>
+              <option value="MY">Malaysia</option>
+              <option value="MV">Maldives</option>
+              <option value="ML">Mali</option>
+              <option value="MT">Malta</option>
+              <option value="MH">Marshall Islands</option>
+              <option value="MQ">Martinique</option>
+              <option value="MR">Mauritania</option>
+              <option value="MU">Mauritius</option>
+              <option value="YT">Mayotte</option>
+              <option value="MX">Mexico</option>
+              <option value="FM">Micronesia, Federated States of</option>
+              <option value="MD">Moldova, Republic of</option>
+              <option value="MC">Monaco</option>
+              <option value="MN">Mongolia</option>
+              <option value="ME">Montenegro</option>
+              <option value="MS">Montserrat</option>
+              <option value="MA">Morocco</option>
+              <option value="MZ">Mozambique</option>
+              <option value="MM">Myanmar</option>
+              <option value="NA">Namibia</option>
+              <option value="NR">Nauru</option>
+              <option value="NP">Nepal</option>
+              <option value="NL">Netherlands</option>
+              <option value="NC">New Caledonia</option>
+              <option value="NZ">New Zealand</option>
+              <option value="NI">Nicaragua</option>
+              <option value="NE">Niger</option>
+              <option value="NG">Nigeria</option>
+              <option value="NU">Niue</option>
+              <option value="NF">Norfolk Island</option>
+              <option value="MP">Northern Mariana Islands</option>
+              <option value="NO">Norway</option>
+              <option value="OM">Oman</option>
+              <option value="PK">Pakistan</option>
+              <option value="PW">Palau</option>
+              <option value="PS">Palestinian Territory, Occupied</option>
+              <option value="PA">Panama</option>
+              <option value="PG">Papua New Guinea</option>
+              <option value="PY">Paraguay</option>
+              <option value="PE">Peru</option>
+              <option value="PH">Philippines</option>
+              <option value="PN">Pitcairn</option>
+              <option value="PL">Poland</option>
+              <option value="PT">Portugal</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="QA">Qatar</option>
+              <option value="RE">Réunion</option>
+              <option value="RO">Romania</option>
+              <option value="RU">Russian Federation</option>
+              <option value="RW">Rwanda</option>
+              <option value="BL">Saint Barthélemy</option>
+              <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+              <option value="KN">Saint Kitts and Nevis</option>
+              <option value="LC">Saint Lucia</option>
+              <option value="MF">Saint Martin (French part)</option>
+              <option value="PM">Saint Pierre and Miquelon</option>
+              <option value="VC">Saint Vincent and the Grenadines</option>
+              <option value="WS">Samoa</option>
+              <option value="SM">San Marino</option>
+              <option value="ST">Sao Tome and Principe</option>
+              <option value="SA">Saudi Arabia</option>
+              <option value="SN">Senegal</option>
+              <option value="RS">Serbia</option>
+              <option value="SC">Seychelles</option>
+              <option value="SL">Sierra Leone</option>
+              <option value="SG">Singapore</option>
+              <option value="SX">Sint Maarten (Dutch part)</option>
+              <option value="SK">Slovakia</option>
+              <option value="SI">Slovenia</option>
+              <option value="SB">Solomon Islands</option>
+              <option value="SO">Somalia</option>
+              <option value="ZA">South Africa</option>
+              <option value="GS">South Georgia and the South Sandwich Islands</option>
+              <option value="SS">South Sudan</option>
+              <option value="ES">Spain</option>
+              <option value="LK">Sri Lanka</option>
+              <option value="SD">Sudan</option>
+              <option value="SR">Suriname</option>
+              <option value="SJ">Svalbard and Jan Mayen</option>
+              <option value="SZ">Swaziland</option>
+              <option value="SE">Sweden</option>
+              <option value="CH">Switzerland</option>
+              <option value="SY">Syrian Arab Republic</option>
+              <option value="TW">Taiwan, Province of China</option>
+              <option value="TJ">Tajikistan</option>
+              <option value="TZ">Tanzania, United Republic of</option>
+              <option value="TH">Thailand</option>
+              <option value="TL">Timor-Leste</option>
+              <option value="TG">Togo</option>
+              <option value="TK">Tokelau</option>
+              <option value="TO">Tonga</option>
+              <option value="TT">Trinidad and Tobago</option>
+              <option value="TN">Tunisia</option>
+              <option value="TR">Turkey</option>
+              <option value="TM">Turkmenistan</option>
+              <option value="TC">Turks and Caicos Islands</option>
+              <option value="TV">Tuvalu</option>
+              <option value="UG">Uganda</option>
+              <option value="UA">Ukraine</option>
+              <option value="AE">United Arab Emirates</option>
+              <option value="GB">United Kingdom</option>
+              <option value="US" selected="selected">United States</option>
+              <option value="UM">United States Minor Outlying Islands</option>
+              <option value="UY">Uruguay</option>
+              <option value="UZ">Uzbekistan</option>
+              <option value="VU">Vanuatu</option>
+              <option value="VE">Venezuela, Bolivarian Republic of</option>
+              <option value="VN">Viet Nam</option>
+              <option value="VG">Virgin Islands, British</option>
+              <option value="VI">Virgin Islands, U.S.</option>
+              <option value="WF">Wallis and Futuna</option>
+              <option value="EH">Western Sahara</option>
+              <option value="YE">Yemen</option>
+              <option value="ZM">Zambia</option>
+              <option value="ZW">Zimbabwe</option>
+        </datalist>
+      </div>
+
+      <div class="col-xs-12 col-md-3">
+        <label for="Shipping-State-label">State / Territory</label>
+        <input id="Shipping-State-input" class="pure-u-23-24 State-list" type="text" list="Shipping-US-State-list" value="NJ">
+        <datalist id="Shipping-US-State-list">
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ" selected="selected">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+            <option value="AS">American Samoa</option>
+            <option value="GU">Guam</option>
+            <option value="MP">Northern Mariana Islands</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="UM">United States Minor Outlying Islands</option>
+            <option value="VI">Virgin Islands</option>
+          </datalist>
+        <datalist id="Shipping-CA-State-list">
+            <option value="AB">Alberta</option>
+        		<option value="BC">British Columbia</option>
+        		<option value="MB">Manitoba</option>
+        		<option value="NB">New Brunswick</option>
+        		<option value="NF">Newfoundland</option>
+        		<option value="NT">Northwest Territories</option>
+        		<option value="NS">Nova Scotia</option>
+        		<option value="NU">Nunavut</option>
+        		<option value="ON">Ontario</option>
+        		<option value="PE">Prince Edward Island</option>
+        		<option value="QC">Quebec</option>
+        		<option value="SK">Saskatchewan</option>
+        		<option value="YT">Yukon Territory</option>
+          </datalist>
+        <datalist id="Shipping-MX-State-list">
+            <option value="DIF">Distrito Federal</option>
+          	<option value="AGS">Aguascalientes</option>
+          	<option value="BCN">Baja California</option>
+          	<option value="BCS">Baja California Sur</option>
+          	<option value="CAM">Campeche</option>
+          	<option value="CHP">Chiapas</option>
+          	<option value="CHI">Chihuahua</option>
+          	<option value="COA">Coahuila</option>
+          	<option value="COL">Colima</option>
+          	<option value="DUR">Durango</option>
+          	<option value="GTO">Guanajuato</option>
+          	<option value="GRO">Guerrero</option>
+          	<option value="HGO">Hidalgo</option>
+          	<option value="JAL">Jalisco</option>
+          	<option value="MEX">M&eacute;xico</option>
+          	<option value="MIC">Michoac&aacute;n</option>
+          	<option value="MOR">Morelos</option>
+          	<option value="NAY">Nayarit</option>
+          	<option value="NLE">Nuevo Le&oacute;n</option>
+          	<option value="OAX">Oaxaca</option>
+          	<option value="PUE">Puebla</option>
+          	<option value="QRO">Quer&eacute;taro</option>
+          	<option value="ROO">Quintana Roo</option>
+          	<option value="SLP">San Luis Potos&iacute;</option>
+          	<option value="SIN">Sinaloa</option>
+          	<option value="SON">Sonora</option>
+          	<option value="TAB">Tabasco</option>
+          	<option value="TAM">Tamaulipas</option>
+          	<option value="TLX">Tlaxcala</option>
+          	<option value="VER">Veracruz</option>
+          	<option value="YUC">Yucat&aacute;n</option>
+          	<option value="ZAC">Zacatecas</option>
+          </datalist>
+      </div>
+
+      <div class="col-xs-12 col-md-3">
+        <label for="Shipping-City-label">City</label>
+        <input id="Shipping-City-input" class="pure-u-23-24" type="text">
+      </div>
+
+      <div class="col-xs-12 col-md-3">
+        <label for="Shipping-Zip-Code-label">Zip Code</label>
+        <input id="Shipping-Zip-Code-input" class="pure-u-23-24" type="text">
+      </div>
+
+      <!------------------------------------------------------------------------------------>
+
+      <div class="col-xs-12 col-md-12">
+        <label for="Shipping-Person-Notes-Label">Shipping Information - Notes And Comments</label>
+        <textarea id="Shipping-Person-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+      </div>
+    </form>
+  </div>
+
+  <!------------------------------------------------------------------------------------>
+  <!--Order-Information----------------------------------------------------------------->
+  <!------------------------------------------------------------------------------------>
+  <div id="OrderInfoTab" class="tabcontent">
+    <form class="row" div="OrderInfo">
+      <div class="col-xs-12">
+        <h3>Order Information</h3>
+      </div>
+
+      <!------------------------------------------------------------------------------------>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Order-Order-Date-label">Order Date</label>
+        <input id="Order-Order-Date-input" class="pure-u-23-24" type="date">
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Order-onboard-Date-label">Onboard Date</label>
+        <input id="Order-onboard-Date-input" class="pure-u-23-24" type="date">
+      </div>
+
+      <!------------------------------------------------------------------------------------>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Order-Salesperson-label">Sales Person</label>
+        <input id="Order-Salesperson-input" class="pure-u-23-24" type="text" list="Salesperson">
+        <datalist id="Salesperson">
+            <option>AJ</option>
+            <option>Becky</option>
+            <option>Chris</option>
+            <option>Dave</option>
+            <option>Jacob</option>
+            <option>Joe</option>
+            <option>Jon</option>
+            <option>Rich</option>
+            <option>Ron</option>
+            <option>Sabel</option>
+            <option>Sarah</option>
+          </datalist>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <label for="Order-Order-Type-label">Order Type</label>
+        <select id="Order-Order-Type-input" class="pure-u-23-24" list="Shipping-State">
+            <option value="Repeat-Order" selected="selected">Repeat Order</option>
+            <option value="E-Mail-Order">E-Mail Order</option>
+            <option value="Internet-Order">Internet Order</option>
+            <option value="Phone-Order">Phone Order</option>
+            <option value="Fax-Order">Fax Order</option>
+          </select>
+      </div>
+
+      <!------------------------------------------------------------------------------------>
+
+      <div class="col-xs-12 col-md-12">
+        <label for="Order-Person-Notes-Label">Order Information - Notes And Comments</label>
+        <textarea id="Order-Person-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+      </div>
+    </form>
+  </div>
+
+  <!------------------------------------------------------------------------------------>
+  <!--Trophy-Spec----------------------------------------------------------------------->
+  <!------------------------------------------------------------------------------------>
+  <div id="TrophySpecTab" class="tabcontent">
+    <div id="TrophySpecOuter">
+      <form class="row" id="TrophySpec" Qaunity="1">
+
+        <div class="col-xs-11">
+          <h3>Trophy <span class="TrophySpecCnt-Display-Title">1</span> Details</h3>
+        </div>
+        <div class="col-xs-1">
+          <a onclick="DeleteTrophySpec(1)" class="closeButton TrophycloseButton" Qaunity="1">&#10006;</a>
+        </div>
+
+
+        <div class="col-xs-12 col-md-12 last">
+          <label for="Trophy-Spec-Name-label">Trophy Name</label>
+          <input id="Trophy-Spec-Name-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Trophy-Spec-Quantity-label">Qaunity</label>
+          <input id="Trophy-Spec-Quantity-input" class="pure-u-23-24 TrophySpecCntAttributeQaunity cost" type="number" step="1" value="1" oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Trophy-Spec-single-sub-total-label">Trophy Sub Total</label>
+          <input id="Trophy-Spec-single-sub-total-input" class="pure-u-23-24 cost Trophy-Sub-Total-Sum TrophySpecCntAttributeSubTotal" type="number" step='0.01' value='0.00' placeholder='0.00' oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Trophy-Spec-single-grand-total-label">Trophy Grand Total</label>
+          <input id="Trophy-Spec-single-grand-total-input" class="pure-u-23-24 cost TrophySpecCntAttributeGrandTotal trophyTotal-Sum" type="number" step='0.01' value='0.00' placeholder='0.00' disabled="true" oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Figure Type</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Logo</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Medalion Holder</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Riser</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Column Type</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Column Height</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Base Type</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Trophy-Spec-Notes-Label">Plate Size</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-12">
+          <label for="Trophy-Spec-Notes-Label">Trophy <span class="Trophy-Spec-Cnt-Display-Notes">1</span> Notes And Comments</label>
+          <textarea id="Trophy-Spec-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+        </div>
+      </form>
+    </div>
+
+
+
+    <div id="CloneInnerTrophySpec">
+      <button onclick="CloneInnerTrophySpec()">Add Another Trophy</button>
+    </div>
+
+  </div>
+
+  <!------------------------------------------------------------------------------------>
+  <!--Plaque-Spec----------------------------------------------------------------------->
+  <!------------------------------------------------------------------------------------>
+  <div id="PlaqueSpecTab" class="tabcontent">
+    <div id="PlaqueSpecOuter">
+      <form class="row" id="PlaqueSpec" Qaunity="1">
+
+        <div class="col-xs-11">
+          <h3>Plaque <span class="PlaqueSpecCnt-Display-Title">1</span> Details</h3>
+        </div>
+        <div class="col-xs-1">
+          <a onclick="DeletePlaqueSpec(1)" class="closeButton PlaquecloseButton" Qaunity="1">&#10006;</a>
+        </div>
+
+
+        <div class="col-xs-12 col-md-12 last">
+          <label for="Plaque-Spec-Name-label">Plaque Name</label>
+          <input id="Plaque-Spec-Name-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Plaque-Spec-Quantity-label">Qaunity</label>
+          <input id="Plaque-Spec-Quantity-input" class="pure-u-23-24 PlaqueSpecCntAttributeQaunity cost" type="number" step="1" value="1" oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Plaque-Spec-single-sub-total-label">Plaque Sub Total</label>
+          <input id="Plaque-Spec-single-sub-total-input" class="pure-u-23-24 cost Plaque-Sub-Total-Sum PlaqueSpecCntAttributeSubTotal" type="number" step='0.01' value='0.00' placeholder='0.00' oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Plaque-Spec-single-grand-total-label">Plaque Grand Total</label>
+          <input id="Plaque-Spec-single-grand-total-input" class="pure-u-23-24 cost PlaqueSpecCntAttributeGrandTotal PlaqueTotal-Sum" type="number" step='0.01' value='0.00' placeholder='0.00' disabled="true" oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Figure Type</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Logo</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Medalion Holder</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Riser</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Column Type</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Column Height</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Base Type</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Plaque-Spec-Notes-Label">Plate Size</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-12">
+          <label for="Plaque-Spec-Notes-Label">Plaque <span class="Plaque-Spec-Cnt-Display-Notes">1</span> Notes And Comments</label>
+          <textarea id="Plaque-Spec-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+        </div>
+      </form>
+    </div>
+
+
+
+    <div id="CloneInnerPlaqueSpec">
+      <button onclick="CloneInnerPlaqueSpec()">Add Another Plaque</button>
+    </div>
+
+  </div>
+
+  <!------------------------------------------------------------------------------------>
+  <!--Medal-Spec------------------------------------------------------------------------>
+  <!------------------------------------------------------------------------------------>
+  <div id="MedalSpecTab" class="tabcontent">
+    <div id="MedalSpecOuter">
+      <form class="row" id="MedalSpec" Qaunity="1">
+
+        <div class="col-xs-11">
+          <h3>Medal <span class="MedalSpecCnt-Display-Title">1</span> Details</h3>
+        </div>
+        <div class="col-xs-1">
+          <a onclick="DeleteMedalSpec(1)" class="closeButton MedalCloseButton" Qaunity="1">&#10006;</a>
+        </div>
+
+
+        <div class="col-xs-12 col-md-12 last">
+          <label for="Medal-Spec-Name-label">Medal Name</label>
+          <input id="Medal-Spec-Name-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Medal-Spec-Quantity-label">Qaunity</label>
+          <input id="Medal-Spec-Quantity-input" class="pure-u-23-24 MedalSpecCntAttributeQaunity cost" type="number" step="1" value="1" oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Medal-Spec-single-sub-total-label">Medal Sub Total</label>
+          <input id="Medal-Spec-single-sub-total-input" class="pure-u-23-24 cost Medal-Sub-Total-Sum MedalSpecCntAttributeSubTotal" type="number" step='0.01' value='0.00' placeholder='0.00' oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <div class="col-xs-4">
+          <label for="Medal-Spec-single-grand-total-label">Medal Grand Total</label>
+          <input id="Medal-Spec-single-grand-total-input" class="pure-u-23-24 cost MedalSpecCntAttributeGrandTotal MedalTotal-Sum" type="number" step='0.01' value='0.00' placeholder='0.00' disabled="true" oninput="updateCost()" Qaunity="1">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Medal-Spec-Notes-Label">Style</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Medal-Spec-Notes-Label">Size</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+          <label for="Medal-Spec-Notes-Label">Color</label>
+          <input id="Order-onboard-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Medal-Spec-logo-label">Logo</label>
+          <input id="Medal-Spec-logo-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <label for="Medal-Spec-Notes-Label">Plate Size</label>
+          <input id="Medal-Spec-Date-input" class="pure-u-23-24" type="text">
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-12">
+          <label for="Medal-Spec-Engraving-Label">Engraving</label>
+          <textarea id="Medal-Spec-Engraving-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+        </div>
+
+        <!----------------------------------------------->
+
+        <div class="col-xs-12 col-md-12">
+          <label for="Medal-Spec-Notes-Label">Medal <span class="Medal-Spec-Cnt-Display-Notes">1</span> Notes And Comments</label>
+          <textarea id="Medal-Spec-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+        </div>
+      </form>
+    </div>
+
+
+
+    <div id="CloneInnerMedalSpec">
+      <button onclick="CloneInnerMedalSpec()">Add Another Medal</button>
+    </div>
+
+  </div>
+
+  <!------------------------------------------------------------------------------------>
+  <!--General-Notes-And-Comments-------------------------------------------------------->
+  <!------------------------------------------------------------------------------------>
+
+  <form class="row" div="General-Notes">
+    <div class="col-xs-12">
+      <h3>General Notes And Comments</h3>
+    </div>
+
+    <!------------------------------------------------------------------------------------>
+    <div class="col-xs-12 col-md-12">
+      <label for="General-Notes-Label">General Notes And Comments</label>
+      <textarea id="General-Notes-input" class="pure-u-23-24 Notes-input" type="text"></textarea>
+    </div>
+  </form>
+
+  <!------------------------------------------------------------------------------------>
+  <!--Info-Bar-------------------------------------------------------------------------->
+  <!------------------------------------------------------------------------------------>
+
+  <div id="infoouter" class="col-xs-12">
+    <div id="infobar">
+      Last Saved Version: <span class="lastsavedversion">Not Saved</span> | Current Loaded Version: <span class="currentloadedversion"></span></br>
+      Contact Person Count: <span class="ContactPersonCnt">1</span> | Trophy Count: <span class="TrophySpecCnt">1</span></br>
+      Plaque Count: <span class="PlaqueCnt">1</span> | Medal Count: <span class="MedalCnt">1</span></br>
+      Unique Identifier Count: <span class="UIDcnt">1</span>
+    </div>
+  </div>
+</body>
+
+</html>
